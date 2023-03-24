@@ -26,11 +26,12 @@ export default function Landing_Page() {
         <div className="container">
             <h1>Hello, landing page</h1>
             <div className="listings">
-                {Object.keys(data).map(listing => (
-                    <div className="listing-item">
-                        title : {data[listing].title}
-                        description : {data[listing].description}
-                        contact : {data[listing].contact}
+                {Object.keys(data).map((listing, key) => (
+                    <div className="listing-item" key={key}>
+                        key: {key},
+                        title : {data[listing].title},
+                        description : {data[listing].description},
+                        contact : {data[listing].contact} 
                     </div>
                 ))}
              </div>
