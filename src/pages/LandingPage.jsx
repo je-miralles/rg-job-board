@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { csv } from "d3-fetch";
 
-export default function Landing_Page({ url }) {
+export default function LandingPage({ url }) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export default function Landing_Page({ url }) {
                         key : {key},
                         title : {data[listing].title},
                         description : {data[listing].description},
-                        contact : {data[listing].contact} 
+                        contact : {data[listing].contact}
                     </div>
                 ))}
             </div>
