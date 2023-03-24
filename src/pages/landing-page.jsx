@@ -8,10 +8,7 @@ export default function Landing_Page() {
 
         const fetchData = async () => {
             try {
-                const response = await fetch(url);
-                const theCsv = await csv('hi, hello, emilio, alex')
-
-                console.log(response);
+                const theCsv = await csv(url)
                 console.log(theCsv);
             } catch (error) {
                 console.log("error", error);
