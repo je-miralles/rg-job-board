@@ -13,7 +13,7 @@ export default function Landing_Page() {
                 theCsv.map((value, key) => {
                     console.log("key:", key, "value:", value.title);
                 });
-                setData(theCsv);
+                setData([...theCsv]);
             } catch (error) {
                 console.log("error", error);
             }
