@@ -1,26 +1,21 @@
 import { React, useEffect, useState } from "react";
 import { csv } from "d3-fetch";
 
-export default function Landing_Page() {
+export default function Landing_Page({ url }) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTIAE4rAi3VwxQ3zSHlBgZNg43gfMVJ-uYiXFDvdDHNQMYPTNyir155Vbv2o2KacdYb8BZSSIJI88A/pub?gid=0&single=true&output=csv";
-
         const fetchData = async () => {
             try {
                 const theCsv = await csv(url);
-                theCsv.map((value, key) => {
-                    console.log("key:", key, "value:", value.title);
-                });
+                console.log("theCsv", theCsv);
                 setData([...theCsv]);
             } catch (error) {
                 console.log("error", error);
             }
         };
-
         fetchData();
-    }, []);
+    }, [url]);
 
     return(
         <div className="container">
@@ -28,13 +23,13 @@ export default function Landing_Page() {
             <div className="listings">
                 {Object.keys(data).map((listing, key) => (
                     <div className="listing-item" key={key}>
-                        key: {key},
+                        key : {key},
                         title : {data[listing].title},
                         description : {data[listing].description},
                         contact : {data[listing].contact} 
                     </div>
                 ))}
-             </div>
+            </div>
         </div>
     );
 }
