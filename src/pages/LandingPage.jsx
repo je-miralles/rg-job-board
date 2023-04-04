@@ -1,11 +1,43 @@
 import { React, useEffect, useState } from 'react'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 import { csv } from 'd3-fetch'
+import { createStyles, rem, Container, Title, TextInput } from '@mantine/core'
+// import styles from '@/styles/Home.module.css'
+// import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
+
+const useStyles = createStyles((theme) => ({
+  wrapper: {
+    position: 'relative',
+    paddingTop: rem(120),
+    paddingBottom: rem(80),
+
+    [theme.fn.smallerThan('sm')]: {
+      paddingTop: rem(80),
+      paddingBottom: rem(60),
+    },
+  },
+
+  title: {
+    textAlign: 'center',
+    fontWeight: 800,
+    fontSize: rem(40),
+    letterSpacing: -1,
+
+    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+    
+    marginBottom: theme.spacing.xs,
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+
+    [theme.fn.smallerThan('xs')]: {
+      fontSize: rem(28),
+      textAlign: 'left',
+    },
+  },
+}))
 
 export default function LandingPage({ url }) {
+  const { classes } = useStyles()
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -22,9 +54,20 @@ export default function LandingPage({ url }) {
   }, [url]);
 
   return(
+    <Container className={classes.wrapper} size={1400}>
+      <div className={classes.inner}>
+        <Title className={classes.title}>
+          Resource Generation Job Board
+        </Title>
+      </div>
+    </Container>
+  )
+
+  return(
     <main className={styles.main}>
       <div className={styles.description}>
         <h1 className={inter.className}>Hello, landing page</h1>
+        <TextInput label={'What are you doing?'} placeholder='demo' />
       </div>
 
       <div className={styles.grid}>
