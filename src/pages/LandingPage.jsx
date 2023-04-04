@@ -1,9 +1,11 @@
 import { React, useEffect, useState } from 'react'
 import { csv } from 'd3-fetch'
-import { createStyles, rem, Container, Title, TextInput } from '@mantine/core'
+import { createStyles, rem, Container, Title, Grid } from '@mantine/core'
+import JobCard from './JobCard'
+
+// OLD: RELEVANT TO NEXT THEME/COMPONENT LIBRARY
 // import styles from '@/styles/Home.module.css'
 // import { Inter } from 'next/font/google'
-
 // const inter = Inter({ subsets: ['latin'] })
 
 const useStyles = createStyles((theme) => ({
@@ -54,33 +56,43 @@ export default function LandingPage({ url }) {
   }, [url]);
 
   return(
-    <Container className={classes.wrapper} size={1400}>
-      <div className={classes.inner}>
-        <Title className={classes.title}>
-          Resource Generation Job Board
-        </Title>
-      </div>
-    </Container>
+    <main>
+      <Container className={classes.wrapper} size={1400}>
+        <div className={classes.inner}>
+          <Title className={classes.title}>
+            Resource Generation Job Board
+          </Title>
+        </div>
+      </Container>
+      <Container>
+        <Grid>
+          {data.map(d => (
+            <Grid.Col span={4} key={d.title}>
+              <JobCard data={d}></JobCard>
+            </Grid.Col>))}
+        </Grid>
+      </Container>
+    </main>
   )
 
-  return(
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <h1 className={inter.className}>Hello, landing page</h1>
-        <TextInput label={'What are you doing?'} placeholder='demo' />
-      </div>
+  // OLD: FROM NEXT THEME/COMPONENT LIBRARY
+  // return(
+  //   <main className={styles.main}>
+  //     <div className={styles.description}>
+  //       <h1 className={inter.className}>Hello, landing page</h1>
+  //     </div>
 
-      <div className={styles.grid}>
-        {Object.keys(data).map((listing_num, listing_key) => (
-          <div className={styles.card} key={listing_key}>
-            <ul className={inter.className}>
-              {Object.keys(data[listing_num]).map((field_name, field_key) => (
-                <li key={field_key}>{field_name}, {data[listing_num][field_name]}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </main>
-  );
+  //     <div className={styles.grid}>
+  //       {Object.keys(data).map((listing_num, listing_key) => (
+  //         <div className={styles.card} key={listing_key}>
+  //           <ul className={inter.className}>
+  //             {Object.keys(data[listing_num]).map((field_name, field_key) => (
+  //               <li key={field_key}>{field_name}, {data[listing_num][field_name]}</li>
+  //             ))}
+  //           </ul>
+  //         </div>
+  //       ))}
+  //     </div>
+  //   </main>
+  // );
 }
