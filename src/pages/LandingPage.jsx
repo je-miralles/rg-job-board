@@ -3,11 +3,6 @@ import { csv } from 'd3-fetch'
 import { createStyles, rem, Container, Title, Grid } from '@mantine/core'
 import JobCard from './JobCard'
 
-// OLD: RELEVANT TO NEXT THEME/COMPONENT LIBRARY
-// import styles from '@/styles/Home.module.css'
-// import { Inter } from 'next/font/google'
-// const inter = Inter({ subsets: ['latin'] })
-
 const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'relative',
@@ -27,7 +22,7 @@ const useStyles = createStyles((theme) => ({
     letterSpacing: -1,
 
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-    
+
     marginBottom: theme.spacing.xs,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 
@@ -55,7 +50,7 @@ export default function LandingPage({ url }) {
     fetchData();
   }, [url]);
 
-  return(
+  return (
     <main>
       <Container className={classes.wrapper} size={1400}>
         <div className={classes.inner}>
@@ -65,34 +60,13 @@ export default function LandingPage({ url }) {
         </div>
       </Container>
       <Container>
-        <Grid>
+        <Grid align="stretch">
           {data.map(d => (
-            <Grid.Col span={4} key={d.title}>
+            <Grid.Col md={6} lg={3} key={d.title}>
               <JobCard data={d}></JobCard>
             </Grid.Col>))}
         </Grid>
       </Container>
     </main>
   )
-
-  // OLD: FROM NEXT THEME/COMPONENT LIBRARY
-  // return(
-  //   <main className={styles.main}>
-  //     <div className={styles.description}>
-  //       <h1 className={inter.className}>Hello, landing page</h1>
-  //     </div>
-
-  //     <div className={styles.grid}>
-  //       {Object.keys(data).map((listing_num, listing_key) => (
-  //         <div className={styles.card} key={listing_key}>
-  //           <ul className={inter.className}>
-  //             {Object.keys(data[listing_num]).map((field_name, field_key) => (
-  //               <li key={field_key}>{field_name}, {data[listing_num][field_name]}</li>
-  //             ))}
-  //           </ul>
-  //         </div>
-  //       ))}
-  //     </div>
-  //   </main>
-  // );
 }

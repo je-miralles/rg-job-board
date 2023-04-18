@@ -7,7 +7,11 @@ export default function App({ Component, pageProps }) {
     <MantineProvider
       withGlobalStyles
       withNormalizeCSS
-      theme={{ colorScheme: "dark" }}
+      theme={{
+        colorScheme: "light",
+        colors: {
+          // 'body-background': '#F8F8F8', // Doesn't work
+        }, }}
     >
       <Component {...pageProps} />
     </MantineProvider>
