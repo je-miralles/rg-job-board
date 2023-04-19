@@ -1,7 +1,8 @@
-import { React, useEffect, useState } from 'react'
-import { csv } from 'd3-fetch'
-import { createStyles, rem, Container, Title, Grid } from '@mantine/core'
-import JobCard from './JobCard'
+import { useEffect, useState } from 'react';
+import { csv } from 'd3-fetch';
+import { createStyles, rem, Container, Title, Grid } from '@mantine/core';
+
+import JobCard from './JobCard';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
