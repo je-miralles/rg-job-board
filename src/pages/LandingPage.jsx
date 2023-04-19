@@ -32,7 +32,7 @@ const useStyles = createStyles((theme) => ({
       textAlign: 'left',
     },
   },
-}))
+}));
 
 export default function LandingPage({ url }) {
   const { classes } = useStyles()
