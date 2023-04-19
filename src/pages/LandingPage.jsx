@@ -1,7 +1,8 @@
-import { React, useEffect, useState } from 'react'
-import { csv } from 'd3-fetch'
-import { createStyles, rem, Container, Title, Grid } from '@mantine/core'
-import JobCard from './JobCard'
+import { useEffect, useState } from 'react';
+import { csv } from 'd3-fetch';
+import { createStyles, rem, Container, Title, Grid } from '@mantine/core';
+
+import JobCard from './JobCard';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -31,7 +32,7 @@ const useStyles = createStyles((theme) => ({
       textAlign: 'left',
     },
   },
-}))
+}));
 
 export default function LandingPage({ url }) {
   const { classes } = useStyles()
@@ -68,5 +69,9 @@ export default function LandingPage({ url }) {
         </Grid>
       </Container>
     </main>
-  )
+  );
 }
+
+LandingPage.defaultProps = {
+  url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTIAE4rAi3VwxQ3zSHlBgZNg43gfMVJ-uYiXFDvdDHNQMYPTNyir155Vbv2o2KacdYb8BZSSIJI88A/pub?gid=0&single=true&output=csv"
+};
