@@ -56,7 +56,7 @@ export default function LandingPage({ url }) {
       <Container className={classes.wrapper} size={1400}>
         <div className={classes.inner}>
           <Title className={classes.title}>
-            Resource Generation Job Board
+            Bay Area Resource Generation Job Board
           </Title>
         </div>
       </Container>
