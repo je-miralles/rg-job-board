@@ -1,4 +1,3 @@
-import { React } from 'react';
 import { Card, Text, Group } from '@mantine/core';
 
 export default function JobCard({ data }) {
@@ -14,15 +13,15 @@ export default function JobCard({ data }) {
 }
 
 JobCard.defaultProps = {
-    data: {
-        'title': "",
-        'description': "",
-        'contact': "",
-        'time-committment': "",
-        'minimum commitment': "",
-        'start date': "",
-        'number of people to fill this role': "",
-        'applicant-characteristics': "",
-        'Link to more details': ""
-    }
+  data: {
+    'title': "",
+    'description': "",
+    'contact': "",
+    'time-committment': "",
+    'minimum-commitment': "",
+    'start-date': "",
+    'number-of-people-to-fill-this-role': "",
+    'applicant-characteristics': "",
+    'link': ""
+  }
 };
