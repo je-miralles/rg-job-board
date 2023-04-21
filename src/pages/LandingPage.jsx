@@ -35,7 +35,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function LandingPage({ url }) {
-  const { classes } = useStyles()
+  const { classes } = useStyles();
   const [data, setData] = useState([]);
 
   useEffect(() => {
