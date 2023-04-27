@@ -1,18 +1,20 @@
 import { createStyles, Card, Text, Group } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
+  text_title: {
+    color: theme.colorScheme === 'dark' ? theme.colors.gray[5] : theme.colors.dark[8],
+  },
   text: {
-    color: theme.colorScheme === 'dark' ? theme.colors.gray[4] : theme.colors.dark[8],
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    color: theme.colorScheme === 'dark' ? theme.colors.gray[6] : theme.colors.dark[8],
   },
 }));
 
 export default function JobCard({ data, color }) {
     const { classes } = useStyles();
     return <Card sx={{ backgroundColor: `${color}` }} component="a" href={`${data.link}`} target='blank' radius="md">
-        <Text className={classes.text} weight={500} size="lg" mb="md">{data.title}</Text>
+        <Text className={classes.text_title} weight={500} size="lg" mb="md">{data.title}</Text>
         <Group position="apart">
-            <Text className={classes.text} size="sm" color="dimmed" lineClamp={10}>
+            <Text className={classes.text} size="sm" lineClamp={10}>
                 {data.description}
             </Text>
         </Group>

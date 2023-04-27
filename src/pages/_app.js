@@ -17,41 +17,12 @@ export default function App({ Component, pageProps }) {
         withGlobalStyles
         withNormalizeCSS
         theme={{
-          colorScheme: "light",
-          // globalStyles: (theme) => ({
-          //   '*, *::before, *::after': {
-          //     boxSizing: 'border-box',
-          //   },
-  
-          //   body: {
-          //     ...theme.fn.fontStyles(),
-          //     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-          //     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
-          //     lineHeight: theme.lineHeight,
-          //   },
-  
-          //   '.your-class': {
-          //     backgroundColor: 'red',
-          //   },
-  
-          //   '#your-id > [data-active]': {
-          //     backgroundColor: 'pink',
-          //   },
-          // }),
-          // colors: {
-          //   dark: [
-          //     '#d5d7e0', // text ONLY IN DARK SCHEME
-          //     '#acaebf',
-          //     '#8c8fa3',
-          //     '#666980',
-          //     '#4d4f66',
-          //     '#34354a',
-          //     '#fab005', // Card ONLY IN DARK SCHEME
-          //     '#2C2E33', // background ONLY IN DARK SCHEME
-          //     '#0c0d21',
-          //     '#01010a',
-          //   ]
-          // },
+          colorScheme: "dark",
+          globalStyles: (theme) => ({
+            body: {
+              backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[2],
+            },
+          }),
         }}
       >
         <Component {...pageProps} />
