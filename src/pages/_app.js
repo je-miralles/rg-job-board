@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
         withGlobalStyles
         withNormalizeCSS
         theme={{
-          colorScheme: "dark",
+          colorScheme: "light",
           // globalStyles: (theme) => ({
           //   '*, *::before, *::after': {
           //     boxSizing: 'border-box',

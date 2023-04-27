@@ -22,7 +22,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: rem(40),
     letterSpacing: -1,
 
-    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+    color: theme.colorScheme === 'dark' ? theme.colors.gray[3] : theme.colors.dark[4],
 
     marginBottom: theme.spacing.xs,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
@@ -61,11 +61,9 @@ export default function LandingPage({ url }) {
   return (
     <main>
       <Container className={classes.wrapper} size={1400}>
-        <div className={classes.inner}>
-          <Title className={classes.title}>
-            Bay Area Resource Generation Job Board
-          </Title>
-        </div>
+        <Title className={classes.title}>
+          Bay Area Resource Generation Job Board
+        </Title>
       </Container>
       <Container>
         <Grid align="stretch">
